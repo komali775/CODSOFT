@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .calculator {
+      width: 300px;
+      height: 450px;
+      margin: 50px auto;
+      border: 2px solid #000000;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 50px #0000001a;
+      background-color: #c0c0c0;
+    }
+
+    .screen {
+      width: 95%;
+      height: 40px;
+      margin-bottom: 10px;
+      text-align: right;
+      padding: 10px;
+      border: 2px solid #000000;
+      border-radius: 5px;
+      box-shadow: 0 0 50px #0000001a;
+      background-color: #ffffff;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 5px;
+    }
+
+    .button {
+      padding: 20px;
+      text-align: center;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      border-radius: 50px;
+      background-color: #000000; 
+      cursor: pointer;
+      box-shadow: 0 0 50px #0000001a;
+    }
+
+    .button-operator {
+      font-size: 1.5em;
+      border: 2px solid #ffffff;
+      background-color: #000000; 
+      box-shadow: 0 0 50px #0000001a;
+    }
+
+    .button-clear {
+      font-size: 1.5em;
+      border: 2px solid #000000;
+      background-color: #ff0000; 
+      box-shadow: 0 0 50px #0000001a;
+    }
+
+    .button-equal {
+      font-size: 1.5em;
+      grid-column: 4 / span 1; 
+      grid-row: span 4; 
+      display: flex;
+      border: 2px solid #ffffff; 
+      background-color: #20893c;
+      box-shadow: 0 0 50px #0000001a;
+      justify-content: center; 
+      align-items: center; 
+    }
+
+    .button-number {
+      font-size: 1.5em;
+      color:#000000;
+      border: 2px solid #000000; 
+      background-color: #ffffff; 
+      box-shadow: 0 0 50px #0000001a;
+    }
+  </style>
+</head>
+<body>
+
+<div class="calculator">
+  <div class="screen" id="screen">0</div>
+  <div class="buttons">
+    <div class="button button-operator" onclick="addToScreen('+')">+</div>
+    <div class="button button-operator" onclick="addToScreen('-')">-</div>
+    <div class="button button-operator" onclick="addToScreen('*')">*</div>
+    <div class="button button-operator" onclick="addToScreen('/')">/</div>
+    <div class="button button-number" onclick="addToScreen('7')">7</div>
+    <div class="button button-number" onclick="addToScreen('8')">8</div>
+    <div class="button button-number" onclick="addToScreen('9')">9</div>
+    <div class="button button-equal" onclick="calculate()">=</div>
+    <div class="button button-number" onclick="addToScreen('4')">4</div>
+    <div class="button button-number" onclick="addToScreen('5')">5</div>
+    <div class="button button-number" onclick="addToScreen('6')">6</div>
+    <div class="button button-number" onclick="addToScreen('3')">3</div>
+    <div class="button button-number" onclick="addToScreen('2')">2</div>
+    <div class="button button-number" onclick="addToScreen('1')">1</div>
+    <div class="button button-number" onclick="addToScreen('.')">.</div>
+    <div class="button button-number" onclick="addToScreen('0')">0</div>
+    <div class="button button-clear" onclick="clearScreen()">C</div>
+  </div>
+</div>
+
+<script>
+  let screen = document.getElementById('screen');
+  let expression = '';
+
+  function addToScreen(value) {
+    expression += value;
+    screen.innerText = expression;
+  }
+
+  function clearScreen() {
+    expression = '';
+    screen.innerText = '0';
+  }
+
+  function calculate() {
+    try {
+      let result = eval(expression);
+      screen.innerText = result;
+      expression = '';
+    } catch (error) {
+      screen.innerText = 'Error';
+      expression = '';
+    }
+  }
+</script>
+
+</body>
+</html>
