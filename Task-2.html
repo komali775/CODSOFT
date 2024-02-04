@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    body, h1, h2, h3, p, ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      position: relative; 
+      text-align: left;
+      padding: 150px 0;
+      padding-top: 200px;
+      padding-bottom:250px;
+      padding-left: 200px;
+      background-color: #1F2833; 
+      box-shadow: 0 0 100px rgba(127, 253, 253, 0.5);
+    }
+
+    header h1 {
+      font-size: 2em;
+      color: #66FCF1;
+      margin-bottom: 20px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #C5C6C7;
+    }
+
+    #about {
+      position: relative;
+      text-align: left; 
+      padding: 200px 0; 
+      padding-top: 200px;
+      padding-left: 600px; 
+      background-color: #45A29E;
+      box-shadow: 0 0 100px rgba(127, 253, 253, 0.5); 
+    }
+
+    #about img {
+      position: absolute;
+      top: 50%;
+      left: 150px; 
+      transform: translateY(-50%);
+      width: 250px;
+      height: 250px;
+      border-radius: 70%; 
+      border: 4px solid #66FCF1;
+      box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); 
+      margin-left: 20px;
+    }
+
+    #about h2{
+      font-size: 2em; 
+      color: #66FCF1; 
+      margin-bottom: 20px;
+    }
+    #about p {
+      font-size: 1.3em; 
+      color: #000;
+    }
+    
+    #education {
+      text-align: center; 
+      padding: 150px 0;
+      background-color: #1F2833;
+    }
+
+    #education h1 {
+      font-size: 2.5em;
+      color: #66FCF1;
+      margin-bottom: 30px; /
+    }
+
+    .education-blocks {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .education-block {
+      flex-basis: calc(33.33% - 20px);
+      padding: 80px;
+      background-color: #45A29E; 
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 100px rgba(127, 253, 253, 0.5);
+      border: 3px solid #66FCF1; 
+    }
+
+    .education-block + .education-block {
+      margin-left: 30px;
+    }
+
+    .education-block h2 {
+      font-size: 1.5em;
+      color: #66FCF1;
+      margin-bottom: 10px;
+    }
+
+    .education-block p {
+      font-size: 1.2em;
+      color: #000; 
+    }
+
+    #skills {
+      text-align: center; 
+      padding: 100px 0; 
+      background-color: #45A29E; 
+      box-shadow: 0 0 3100px rgba(127, 253, 253, 0.5); 
+    }
+
+    #skills h2{
+      font-size: 2.5em; 
+      color: #66FCF1;
+      margin-bottom: 40px;
+    }
+    #skills h3{
+      font-size: 1.5em;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    #skills p {
+      font-size: 1.5em;
+      color: #fff;
+    }
+
+    .skills {
+      display: flex;
+      justify-content: center; 
+      flex-wrap: wrap;
+    }
+
+    .technical-skills{
+      flex-basis: calc(50% - 25px);
+      margin-bottom: 30px; 
+    }
+
+    .technical-skills h3{
+      font-size: 1.5em;
+      color: #fff;
+      margin-bottom: 20px; 
+    }
+
+    .technical-skills ul{
+      list-style-type: none;
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .technical-skills li{
+      font-size: 1.2em;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    #contact {
+      text-align: center;
+      padding: 250px 0;
+      background-color: #1F2833; 
+      box-shadow: 0 0 30px rgba(127, 253, 253, 0.5); 
+    }
+    #contact h2 {
+      font-size: 2.5em;
+      color: #66FCF1; 
+      margin-bottom: 30px;
+    }
+
+    #contact p {
+      font-size: 1.5em; 
+      color: #C5C6C7; 
+    }
+
+    .top-nav {
+      position: absolute;
+      top: 5px;
+      right: 20px;
+      background-color: transparent;
+      padding: 10px;
+    }
+
+    .top-nav ul {
+      list-style-type: none;
+      margin: 20px;
+      padding: 10px;
+    }
+
+    .top-nav li {
+      display: inline;
+    }
+
+    .top-nav li a {
+      color: #66FCF1;
+      text-decoration: none;
+      padding: 20px;
+    }
+
+    .top-nav li a:hover {
+      background-color: transparent;
+    }
+
+    .resume-button {
+      background-color: #45A29E;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      border: 2px solid #66FCF1;
+      box-shadow: 0 0 100px rgba(127, 253, 253, 0.5);
+    }
+
+    .resume-button:hover {
+      background-color: #45A29E;
+    }
+
+    .header-image {
+      position: absolute;
+      top: 50%;
+      right: 150px; 
+      transform: translateY(-50%);
+      width: 250px;
+      height: 250px; 
+      border-radius: 80%; 
+      border: 4px solid #66FCF1; 
+      box-shadow: 0 0 100px rgba(127, 253, 253, 0.5); 
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      color: #66FCF1;
+      background-color: #1F2833;
+      box-shadow: 0 0 100px rgba(127, 253, 253, 0.5); 
+    }
+
+    .skills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap
+    }
+
+    .skill {
+      flex-basis: calc(50% - 25px);
+      margin-bottom: 30px;
+    }
+
+    .bar {
+      width: 100%;
+      background-color: #ddd;
+      height: 20px;
+      border-radius: 10px;
+      border: 3px solid #66FCF1;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      margin-bottom: 10px;
+    }
+
+    .progress {
+      height: 100%;
+      border-radius: 10px;
+      background-color: #1F2833;
+    }
+    
+  </style>
+</head>
+<body>
+  <section id="header">
+    <header>
+      <nav class="top-nav">
+        <ul>
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <h1>Hi! I am Komali</h1>
+      <p>I am a graduating student at Aditya Degree College for Women, Kakinada</p>
+      <p>currently pursuing my bachelor of computers.</p>
+      <button class="resume-button"><a href="resume.pdf" download>Download my resume</a></button>
+      <img src="C:\Users\harsh\OneDrive\Pictures\Screenshots\my image.png" alt="Your Image" class="header-image">
+    </header>
+  </section>
+  <section id="about">
+    <img src="C:\Users\harsh\OneDrive\Pictures\Screenshots\my image.png" alt="Your Image">
+    <h2>About Me</h2>
+    <p>I am Komali currently pursuing my 2nd year of Bachelor of Computer 
+    <p>Applications at Aditya Degree College for Women, Kakinada. My long-term</p>
+    <p>goal is to pursue a challenging role in a reputable organization to</p>
+    <p>utilize my technical skills for the company's growth while fostering</p>
+    <p>my learning and development.</p>
+  </section>
+  <section id="education">
+    <h1>Education</h1>
+    <div class="education-blocks">
+      <div class="graduation education-block">
+        <h2>Graduation</h2>
+        <p> Currently pursuing 2nd-year 4th semester Bachelor of Computer Applications (BCA) in Aditya Degree College for Women, Kakinada which is affiliated to Aadikavinannaya University with an aggregate CGPA of 8.3 </p>
+      </div>
+      <div class="intermediate education-block">
+        <h2>Intermediate</h2>
+        <p>Completed +2 with Bipc group in Sri Chaitanya Junior College, Kakinada which is affiliated to board of intermediate education with an aggregate CGPA of 9.4.</p>
+      </div>
+      <div class="schooling education-block">
+        <h2>Schooling</h2>
+        <p>Completed SSC in Gowtham model school, Samarlakot which is affiliated to secondary school of education with an aggregate CGPA of 8.9.</p>
+      </div>
+    </div>
+  </section>
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="technical-skills">
+        <h3>Technical Skills</h3>
+        <div class="skill">
+          <span>HTML</span>
+          <div class="bar">
+            <div class="progress" style="width: 70%;"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <span>Python</span>
+          <div class="bar">
+            <div class="progress" style="width: 80%;"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <span>C</span>
+          <div class="bar">
+            <div class="progress" style="width: 50%;"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <span>CSS</span>
+          <div class="bar">
+            <div class="progress" style="width: 40%;"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <span>MS Office</span>
+          <div class="bar">
+            <div class="progress" style="width: 85%;"></div>
+          </div>
+      </div>
+    </div>
+  </section>  
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: harshininagakomali@gmail.com</p>
+    <p>Phone: 6304563233</p>
+    <div class="social-icons">
+      <a href="https://wa.me/6304563233" target="_blank"><img src="http://www.pngall.com/wp-content/uploads/2016/04/WhatsApp-PNG-Picture.png" alt="WhatsApp" style="width: 30px; height: 30px;"></a>
+      <a href="https://www.linkedin.com/in/harshini-naga-komali-bojja-6a6a2a260/" target="_blank"><img src="https://pngimg.com/uploads/linkedIn/linkedIn_PNG6.png" alt="LinkedIn" style="width: 30px; height: 30px;"></a>
+      <a href="mailto:harshininagakomali@gmail.com" target="_blank"><img src="http://www.techerator.com/wp-content/uploads/2013/06/Gmail-Logo.png" alt="Gmail" style="width: 30px; height: 30px;"></a>
+      <a href="https://t.me/Harshini_naga_Komali" target="_blank"><img src="https://logodownload.org/wp-content/uploads/2017/11/telegram-logo-8.png" alt="Telegram" style="width: 30px; height: 30px;"></a>
+    </div>
+  </section>  
+  <footer>
+    <p>&copy; 2024 Komali. All rights reserved.</p>
+  </footer>
+</body>
+</html> 
